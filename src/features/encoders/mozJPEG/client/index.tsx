@@ -246,10 +246,10 @@ export class Options extends Component<Props, State> {
                   <option value="2">细节优先</option>
                   <option value="3">ImageMagick</option>
                   <option value="4">清晰优先</option>
-                  <option value="5">Klein</option>
-                  <option value="6">Watson</option>
-                  <option value="7">Ahumada</option>
-                  <option value="8">Peterson</option>
+                  <option value="5">Klein（人眼视觉模型）</option>
+                  <option value="6">Watson（人眼视觉模型）</option>
+                  <option value="7">Ahumada（人眼视觉模型）</option>
+                  <option value="8">Peterson（人眼视觉模型）</option>
                 </Select>
               </label>
               <label class={style.optionToggle}>
