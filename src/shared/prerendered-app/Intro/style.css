@@ -222,12 +222,10 @@
 
 .footer {
   background: var(--white);
-  padding-top: 5em;
 }
 
 .footer-container {
   position: relative;
-  background: var(--light-gray);
 }
 
 .footer-wave {
