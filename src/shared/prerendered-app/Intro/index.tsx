@@ -219,7 +219,7 @@ export default class Intro extends Component<Props, State> {
             <img
               class={style.logo}
               src={logoWithText}
-              alt="Squoosh 图像压缩工具"
+              alt="图片压缩"
               width="539"
               height="162"
             />
@@ -332,7 +332,7 @@ export default class Intro extends Component<Props, State> {
                 <div class={style.infoTextWrapper}>
                   <h2 class={style.infoTitle}>更小</h2>
                   <p class={style.infoCaption}>
-                    更小的图片意味着更快的加载速度。Squoosh 可以在保持高质量的同时
+                    更小的图片意味着更快的加载速度。图片压缩可以在保持高质量的同时
                     大幅减小文件体积。
                   </p>
                 </div>
@@ -382,7 +382,7 @@ export default class Intro extends Component<Props, State> {
                 <div class={style.infoTextWrapper}>
                   <h2 class={style.infoTitle}>更安全</h2>
                   <p class={style.infoCaption}>
-                    担心隐私？图片不会离开你的设备，Squoosh 的所有处理都在本地完成。
+                    担心隐私？图片不会离开你的设备，图片压缩的所有处理都在本地完成。
                   </p>
                 </div>
                 <div class={style.infoImgWrapper}>

@@ -55,8 +55,8 @@ interface Output {
 const toOutput: Output = {
   'index.html': renderPage(<IndexPage />),
   'manifest.json': JSON.stringify({
-    name: 'Squoosh 图像压缩',
-    short_name: 'Squoosh',
+    name: '图片压缩',
+    short_name: '图片压缩',
     start_url: '/?utm_medium=PWA&utm_source=launcher',
     display: 'standalone',
     orientation: 'any',

@@ -27,14 +27,14 @@ interface Props {}
 const Index: FunctionalComponent<Props> = () => (
   <html lang="zh-CN">
     <head>
-      <title>Squoosh - 在线图像压缩工具</title>
+      <title>图片压缩</title>
       <meta
         name="description"
-        content="Squoosh 是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
+        content="图片压缩是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
       />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@SquooshApp" />
-      <meta property="og:title" content="Squoosh - 在线图像压缩工具" />
+      <meta property="og:title" content="图片压缩" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={`${siteOrigin}${ogImage}`} />
       <meta
@@ -50,7 +50,7 @@ const Index: FunctionalComponent<Props> = () => (
       />
       <meta
         name="og:description"
-        content="Squoosh 是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
+        content="图片压缩是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
       />
       <meta
         name="viewport"
