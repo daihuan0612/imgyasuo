@@ -33,7 +33,6 @@ const Index: FunctionalComponent<Props> = () => (
         content="图片压缩是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
       />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@SquooshApp" />
       <meta property="og:title" content="图片压缩" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={`${siteOrigin}${ogImage}`} />
@@ -62,7 +61,7 @@ const Index: FunctionalComponent<Props> = () => (
       <link rel="apple-touch-icon" href={ogImage} />
       <meta name="theme-color" content="#ff3385" />
       <link rel="manifest" href="/manifest.json" />
-      <link rel="canonical" href={siteOrigin} />
+      {siteOrigin && <link rel="canonical" href={siteOrigin} />}
       <style
         dangerouslySetInnerHTML={{ __html: escapeStyleScriptContent(baseCss) }}
       />
