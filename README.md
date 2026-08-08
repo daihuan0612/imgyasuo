@@ -1,34 +1,33 @@
 # [图片压缩]!
 
-[图片压缩] is an image compression web app that reduces image sizes through numerous formats.
+[图片压缩] 是一款图像压缩 Web 应用，支持多种格式，可大幅减小图片体积。
 
-# Privacy
+## 隐私
 
-图片压缩 does not send your image to a server. All image compression processes locally.
+图片压缩不会将你的图片发送到任何服务器，所有图像压缩均在本地完成。
 
-图片压缩 does not use any analytics or tracking. It does not collect visitor data, image size
-values, or any installation information. Your image never leaves your device.
+图片压缩不使用任何统计或追踪工具，不收集访客数据、图片尺寸信息或任何安装信息。你的图片永远不会离开你的设备。
 
-# Developing
+## 开发
 
-To develop for 图片压缩:
+开发图片压缩：
 
-1. Clone the repository
-1. To install node packages, run:
+1. 克隆本仓库
+1. 安装依赖：
    ```sh
    npm install
    ```
-1. Then build the app by running:
+1. 构建应用：
    ```sh
    npm run build
    ```
-1. After building, start the development server by running:
+1. 构建完成后，启动开发服务器：
    ```sh
    npm run dev
    ```
 
-# Contributing
+## 参与贡献
 
-图片压缩 is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
+图片压缩是一个开源项目，欢迎社区参与。如需贡献，请参阅[贡献指南](/CONTRIBUTING.md)。
 
 [图片压缩]: https://github.com/daihuan0612/imgyasuo
