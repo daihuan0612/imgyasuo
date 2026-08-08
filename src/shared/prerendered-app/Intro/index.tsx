@@ -399,6 +399,14 @@ export default class Intro extends Component<Props, State> {
           </div>
         </section>
 
+        <footer class={style.footer}>
+          <div class={style.footerContainer}>
+            <div class={style.footerPadding}>
+              <div class={style.footerCredit}>网站 by kongxing</div>
+            </div>
+          </div>
+        </footer>
+
         {beforeInstallEvent && (
           <button class={style.installBtn} onClick={this.onInstallClick}>
             安装应用

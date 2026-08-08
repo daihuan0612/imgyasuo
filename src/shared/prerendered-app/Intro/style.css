@@ -242,6 +242,12 @@
   padding: 2em;
 }
 
+.footer-credit {
+  font-size: 1.2rem;
+  color: var(--dim-text);
+  text-align: center;
+}
+
 .footer-items {
   display: grid;
 
