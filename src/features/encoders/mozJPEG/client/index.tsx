@@ -241,15 +241,15 @@ export class Options extends Component<Props, State> {
                   value={options.quant_table}
                   onChange={this.onChange}
                 >
-                  <option value="0">JPEG 附录 K</option>
+                  <option value="0">最通用（标准默认）</option>
                   <option value="1">平坦</option>
-                  <option value="2">MSSIM 调优 Kodak</option>
+                  <option value="2">细节优先</option>
                   <option value="3">ImageMagick</option>
-                  <option value="4">PSNR-HVS-M 调优 Kodak</option>
-                  <option value="5">Klein 等人</option>
-                  <option value="6">Watson 等人</option>
-                  <option value="7">Ahumada 等人</option>
-                  <option value="8">Peterson 等人</option>
+                  <option value="4">清晰优先</option>
+                  <option value="5">Klein 论文</option>
+                  <option value="6">Watson 论文</option>
+                  <option value="7">Ahumada 论文</option>
+                  <option value="8">Peterson 论文</option>
                 </Select>
               </label>
               <label class={style.optionToggle}>
