@@ -55,7 +55,7 @@ interface Output {
 const toOutput: Output = {
   'index.html': renderPage(<IndexPage />),
   'manifest.json': JSON.stringify({
-    name: 'Squoosh',
+    name: 'Squoosh 图像压缩',
     short_name: 'Squoosh',
     start_url: '/?utm_medium=PWA&utm_source=launcher',
     display: 'standalone',
@@ -76,8 +76,8 @@ const toOutput: Output = {
       },
     ],
     description:
-      'Compress and compare images with different codecs, right in your browser.',
-    lang: 'en',
+      '在浏览器中直接使用不同编码器压缩并对比图像。',
+    lang: 'zh-CN',
     categories: ['photo', 'productivity', 'utilities'],
     screenshots,
     share_target: {

@@ -3,7 +3,6 @@ import { h, Component } from 'preact';
 import { linkRef } from 'shared/prerendered-app/util';
 import '../../custom-els/loading-spinner';
 import logo from 'url:./imgs/logo.svg';
-import githubLogo from 'url:./imgs/github-logo.svg';
 import largePhoto from 'url:./imgs/demos/demo-large-photo.jpg';
 import artwork from 'url:./imgs/demos/demo-artwork.jpg';
 import deviceScreen from 'url:./imgs/demos/demo-device-screen.png';
@@ -23,28 +22,28 @@ import SlideOnScroll from './SlideOnScroll';
 
 const demos = [
   {
-    description: 'Large photo',
+    description: '大尺寸照片',
     size: '2.8MB',
     filename: 'photo.jpg',
     url: largePhoto,
     iconUrl: largePhotoIcon,
   },
   {
-    description: 'Artwork',
+    description: '插画作品',
     size: '2.9MB',
     filename: 'art.jpg',
     url: artwork,
     iconUrl: artworkIcon,
   },
   {
-    description: 'Device screen',
+    description: '手机截图',
     size: '1.6MB',
     filename: 'pixel3.png',
     url: deviceScreen,
     iconUrl: deviceScreenIcon,
   },
   {
-    description: 'SVG icon',
+    description: 'SVG 图标',
     size: '13KB',
     filename: 'squoosh.svg',
     url: logo,
@@ -56,7 +55,6 @@ const blobAnimImport =
   !__PRERENDER__ && matchMedia('(prefers-reduced-motion: reduce)').matches
     ? undefined
     : import('./blob-anim');
-const installButtonSource = 'introInstallButton-Purple';
 const supportsClipboardAPI =
   !__PRERENDER__ && navigator.clipboard && navigator.clipboard.read;
 
@@ -138,7 +136,7 @@ export default class Intro extends Component<Props, State> {
       this.props.onFile!(file);
     } catch (err) {
       this.setState({ fetchingDemoIndex: undefined });
-      this.props.showSnack!("Couldn't fetch demo image");
+      this.props.showSnack!('无法获取示例图片');
     }
   };
 
@@ -148,14 +146,6 @@ export default class Intro extends Component<Props, State> {
 
     // Save the beforeinstallprompt event so it can be called later.
     this.setState({ beforeInstallEvent: event });
-
-    // Log the event.
-    const gaEventInfo = {
-      eventCategory: 'pwa-install',
-      eventAction: 'promo-shown',
-      nonInteraction: true,
-    };
-    ga('send', 'event', gaEventInfo);
   };
 
   private onInstallClick = async (event: Event) => {
@@ -171,14 +161,6 @@ export default class Intro extends Component<Props, State> {
 
     // Wait for the user to accept or dismiss the install prompt
     const { outcome } = await beforeInstallEvent.userChoice;
-    // Send the analytics data
-    const gaEventInfo = {
-      eventCategory: 'pwa-install',
-      eventAction: 'promo-clicked',
-      eventLabel: installButtonSource,
-      eventValue: outcome === 'accepted' ? 1 : 0,
-    };
-    ga('send', 'event', gaEventInfo);
 
     // If the prompt was dismissed, we aren't going to install via the button.
     if (outcome === 'dismissed') {
@@ -190,13 +172,6 @@ export default class Intro extends Component<Props, State> {
     // We don't need the install button, if it's shown
     this.setState({ beforeInstallEvent: undefined });
 
-    // Don't log analytics if page is not visible
-    if (document.hidden) return;
-
-    // Try to get the install, if it's not set, use 'browser'
-    const source = this.installingViaButton ? installButtonSource : 'browser';
-    ga('send', 'event', 'pwa-install', 'installed', source);
-
     // Clear the install method property
     this.installingViaButton = false;
   };
@@ -207,14 +182,14 @@ export default class Intro extends Component<Props, State> {
     try {
       clipboardItems = await navigator.clipboard.read();
     } catch (err) {
-      this.props.showSnack!(`No permission to access clipboard`);
+      this.props.showSnack!('没有权限访问剪贴板');
       return;
     }
 
     const blob = await getImageClipboardItem(clipboardItems);
 
     if (!blob) {
-      this.props.showSnack!(`No image found in the clipboard`);
+      this.props.showSnack!('剪贴板中没有找到图片');
       return;
     }
 
@@ -244,7 +219,7 @@ export default class Intro extends Component<Props, State> {
             <img
               class={style.logo}
               src={logoWithText}
-              alt="Squoosh"
+              alt="Squoosh 图像压缩工具"
               width="539"
               height="162"
             />
@@ -285,13 +260,13 @@ export default class Intro extends Component<Props, State> {
                 </svg>
               </button>
               <div>
-                <span class={style.dropText}>Drop </span>OR{' '}
+                <span class={style.dropText}>拖拽图片到此处 </span>或{' '}
                 {supportsClipboardAPI ? (
                   <button class={style.pasteBtn} onClick={this.onPasteClick}>
-                    Paste
+                    粘贴
                   </button>
                 ) : (
-                  'Paste'
+                  '粘贴'
                 )}
               </div>
             </div>
@@ -310,7 +285,7 @@ export default class Intro extends Component<Props, State> {
           </svg>
           <div class={style.contentPadding}>
             <p class={style.demoTitle}>
-              Or <strong>try one</strong> of these:
+              或者<strong>试试这些示例</strong>：
             </p>
             <ul class={style.demos}>
               {demos.map((demo, i) => (
@@ -355,17 +330,17 @@ export default class Intro extends Component<Props, State> {
             <SlideOnScroll>
               <div class={style.infoContent}>
                 <div class={style.infoTextWrapper}>
-                  <h2 class={style.infoTitle}>Small</h2>
+                  <h2 class={style.infoTitle}>更小</h2>
                   <p class={style.infoCaption}>
-                    Smaller images mean faster load times. Squoosh can reduce
-                    file size and maintain high quality.
+                    更小的图片意味着更快的加载速度。Squoosh 可以在保持高质量的同时
+                    大幅减小文件体积。
                   </p>
                 </div>
                 <div class={style.infoImgWrapper}>
                   <img
                     class={style.infoImg}
                     src={smallSectionAsset}
-                    alt="silhouette of a large 1.4 megabyte image shrunk into a smaller 80 kilobyte image"
+                    alt="一个大尺寸 1.4 兆字节的图片被压缩成 80 千字节小图片的剪影"
                     width="536"
                     height="522"
                   />
@@ -380,18 +355,17 @@ export default class Intro extends Component<Props, State> {
             <SlideOnScroll>
               <div class={style.infoContent}>
                 <div class={style.infoTextWrapper}>
-                  <h2 class={style.infoTitle}>Simple</h2>
+                  <h2 class={style.infoTitle}>更简单</h2>
                   <p class={style.infoCaption}>
-                    Open your image, inspect the differences, then save
-                    instantly. Feeling adventurous? Adjust the settings for even
-                    smaller files.
+                    打开图片、对比差异、一键保存。想要更进一步？调整参数，压缩出
+                    更小的文件。
                   </p>
                 </div>
                 <div class={style.infoImgWrapper}>
                   <img
                     class={style.infoImg}
                     src={simpleSectionAsset}
-                    alt="grid of multiple shrunk images displaying various options"
+                    alt="多张压缩后的图片网格，展示各种压缩选项的效果"
                     width="538"
                     height="384"
                   />
@@ -406,17 +380,16 @@ export default class Intro extends Component<Props, State> {
             <SlideOnScroll>
               <div class={style.infoContent}>
                 <div class={style.infoTextWrapper}>
-                  <h2 class={style.infoTitle}>Secure</h2>
+                  <h2 class={style.infoTitle}>更安全</h2>
                   <p class={style.infoCaption}>
-                    Worried about privacy? Images never leave your device since
-                    Squoosh does all the work locally.
+                    担心隐私？图片不会离开你的设备，Squoosh 的所有处理都在本地完成。
                   </p>
                 </div>
                 <div class={style.infoImgWrapper}>
                   <img
                     class={style.infoImg}
                     src={secureSectionAsset}
-                    alt="silhouette of a cloud with a 'no' symbol on top"
+                    alt="一朵带禁止符号的云的剪影"
                     width="498"
                     height="333"
                   />
@@ -426,36 +399,9 @@ export default class Intro extends Component<Props, State> {
           </div>
         </section>
 
-        <footer class={style.footer}>
-          <div class={style.footerContainer}>
-            <svg viewBox="0 0 1920 79" class={style.topWave}>
-              <path
-                d="M0 59l64-11c64-11 192-34 320-43s256-5 384 4 256 23 384 34 256 21 384 14 256-30 320-41l64-11v94H0z"
-                class={style.footerWave}
-              />
-            </svg>
-            <div class={style.footerPadding}>
-              <footer class={style.footerItems}>
-                <a
-                  class={style.footerLink}
-                  href="https://github.com/GoogleChromeLabs/squoosh/blob/dev/README.md#privacy"
-                >
-                  Privacy
-                </a>
-                <a
-                  class={style.footerLinkWithLogo}
-                  href="https://github.com/GoogleChromeLabs/squoosh"
-                >
-                  <img src={githubLogo} alt="" width="10" height="10" />
-                  Source on Github
-                </a>
-              </footer>
-            </div>
-          </div>
-        </footer>
         {beforeInstallEvent && (
           <button class={style.installBtn} onClick={this.onInstallClick}>
-            Install
+            安装应用
           </button>
         )}
       </div>

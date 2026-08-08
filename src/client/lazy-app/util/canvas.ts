@@ -1,7 +1,7 @@
 /** Replace the contents of a canvas with the given data */
 export function drawDataToCanvas(canvas: HTMLCanvasElement, data: ImageData) {
   const ctx = canvas.getContext('2d');
-  if (!ctx) throw Error('Canvas not initialized');
+  if (!ctx) throw Error('画布未初始化');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.putImageData(data, 0, 0);
 }
@@ -22,7 +22,7 @@ export async function canvasEncode(
   canvas.width = data.width;
   canvas.height = data.height;
   const ctx = canvas.getContext('2d');
-  if (!ctx) throw Error('Canvas not initialized');
+  if (!ctx) throw Error('画布未初始化');
   ctx.putImageData(data, 0, 0);
 
   let blob: Blob | null;
@@ -37,7 +37,7 @@ export async function canvasEncode(
     const dataUrl = (canvas as HTMLCanvasElement).toDataURL(type, quality);
     const result = /data:([^;]+);base64,(.*)$/.exec(dataUrl);
 
-    if (!result) throw Error('Data URL reading failed');
+    if (!result) throw Error('读取 Data URL 失败');
 
     const outputType = result[1];
     const binaryStr = atob(result[2]);
@@ -50,7 +50,7 @@ export async function canvasEncode(
     blob = new Blob([data], { type: outputType });
   }
 
-  if (!blob) throw Error('Encoding failed');
+  if (!blob) throw Error('编码失败');
   return blob;
 }
 
@@ -82,7 +82,7 @@ export function drawableToImageData(
   canvas.height = height;
   // Draw image onto canvas
   const ctx = canvas.getContext('2d');
-  if (!ctx) throw new Error('Could not create canvas context');
+  if (!ctx) throw new Error('无法创建画布上下文');
   ctx.drawImage(drawable, sx, sy, sw, sh, 0, 0, width, height);
   return ctx.getImageData(0, 0, width, height);
 }
@@ -108,7 +108,7 @@ export function builtinResize(
   canvasDest.width = dw;
   canvasDest.height = dh;
   const ctx = canvasDest.getContext('2d');
-  if (!ctx) throw new Error('Could not create canvas context');
+  if (!ctx) throw new Error('无法创建画布上下文');
 
   if (method === 'pixelated') {
     ctx.imageSmoothingEnabled = false;

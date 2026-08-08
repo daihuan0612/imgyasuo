@@ -25,16 +25,16 @@ import * as snackbarStyle from '../../../shared/custom-els/snack-bar/styles.css'
 interface Props {}
 
 const Index: FunctionalComponent<Props> = () => (
-  <html lang="en">
+  <html lang="zh-CN">
     <head>
-      <title>Squoosh</title>
+      <title>Squoosh - 在线图像压缩工具</title>
       <meta
         name="description"
-        content="Squoosh is the ultimate image optimizer that allows you to compress and compare images with different codecs in your browser."
+        content="Squoosh 是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
       />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@SquooshApp" />
-      <meta property="og:title" content="Squoosh" />
+      <meta property="og:title" content="Squoosh - 在线图像压缩工具" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={`${siteOrigin}${ogImage}`} />
       <meta
@@ -46,11 +46,11 @@ const Index: FunctionalComponent<Props> = () => (
       <meta property="og:image:height" content="500" />
       <meta
         property="og:image:alt"
-        content="A cartoon of a hand squeezing an image file on a dark background."
+        content="一张手在深色背景上挤压图片文件的卡通画。"
       />
       <meta
         name="og:description"
-        content="Squoosh is the ultimate image optimizer that allows you to compress and compare images with different codecs in your browser."
+        content="Squoosh 是一款终极图像优化工具，让你可以在浏览器中直接使用不同编码器压缩并对比图像。"
       />
       <meta
         name="viewport"
@@ -89,11 +89,10 @@ const Index: FunctionalComponent<Props> = () => (
               aria-hidden="false"
             >
               <div class={snackbarStyle.text}>
-                Initialization error: This site requires JavaScript, which is
-                disabled in your browser.
+                初始化错误：此网站需要启用 JavaScript，但你的浏览器中已将其禁用。
               </div>
               <a class={snackbarStyle.button} href="/">
-                reload
+                重新加载
               </a>
             </div>
           </snack-bar>

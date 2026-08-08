@@ -33,7 +33,7 @@ async function decodeImage(url: string): Promise<HTMLImageElement> {
   img.src = url;
   const loaded = new Promise<void>((resolve, reject) => {
     img.onload = () => resolve();
-    img.onerror = () => reject(Error('Image loading error'));
+    img.onerror = () => reject(Error('图片加载错误'));
   });
 
   if (img.decode) {
