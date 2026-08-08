@@ -402,7 +402,7 @@ export default class Intro extends Component<Props, State> {
         <footer class={style.footer}>
           <div class={style.footerContainer}>
             <div class={style.footerPadding}>
-              <div class={style.footerCredit}>© 2026 by kongxing</div>
+              <div class={style.footerCredit}>© 2026 by 空行</div>
             </div>
           </div>
         </footer>
